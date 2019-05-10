@@ -14,3 +14,6 @@
 * Often used when comparing multiple inputs of data
 * This can often avoid the need to use nested loops (O(N^2)) operations with arrays and strings
 
+### Multiple Pointers
+* Creating pointers or values that correspond to an index position and move towards the beginning, end , or middle based on a certain condition
+* Very efficient for solving problems with minimal space complexity as well
