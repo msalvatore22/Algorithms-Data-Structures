@@ -12,3 +12,10 @@
 * Indexed in order
 * Insertion and deletions can be epensive
 * Can quickly be accessed at a specific index
+
+## Big O
+* Insertion = O(1)
+* Removal - it depends O(1) or O(N)
+* Searching - O(N)
+* Access O(N)
+
