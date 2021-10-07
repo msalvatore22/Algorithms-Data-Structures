@@ -89,6 +89,7 @@ class SinglyLinkedList:
 			cur_node=cur_node.next
 			if cur_idx==index:
 				last_node.next=cur_node.next
+				self.length -= 1
 				return
 			cur_idx+=1
 
@@ -142,27 +143,77 @@ class SinglyLinkedList:
 			find_node.data = value
 			return True
 		return False
+
+	def insert(self, index, value):
+		if index < 0 or index > self.length: return False
+		if index == self.length: return self.append_2(value)
+		if index == 0: return self.unshift(value)
+
+		new_node = Node(value)
+		prev_node = self.get_2(index - 1)
+		temp = prev_node.next
+		prev_node.next = new_node
+		new_node.next = temp
+		self.length += 1
+		return True
+
+	def reverse(self):
+		node = self.head
+		self.head = self.tail
+		self.tail = node
+		prev = None
+
+		for i in range(self.length):
+			next = node.next
+			node.next = prev
+			prev = node
+			node = next
+
+		return self
+	
+	def reverse_2(self):
+		prev = None
+		current = self.head
+		while(current is not None):
+			next = current.next
+			current.next = prev
+			prev = current
+			current = next
+
+
+		self.head = prev
+
+
+	
+
 	
 
 	
 
 my_list = SinglyLinkedList()
 my_list.display()
-my_list.append_2(3)
-my_list.append_2(6)
-my_list.append_2(9)
+my_list.append_2(1)
 my_list.append_2(2)
+my_list.append_2(3)
+my_list.append_2(4)
+# my_list.display()
+# my_list.erase(1)
+# my_list.display()
+# my_list.pop()
+my_list.append_2(5)
+my_list.append_2(6)
+my_list.append_2(7)
+# my_list.set_value(2, 22)
 my_list.display()
-print(my_list.get_2(0).data)
-my_list.erase(1)
-my_list.display()
-my_list.pop()
-my_list.append_2(10)
-my_list.append_2(93)
-my_list.append_2(19)
-my_list.set_value(2, 22)
-my_list.display()
+# my_list.insert(0, 77)
 
+# my_list.insert(6, 44)
+# my_list.insert(2, 55)
+# my_list.display()
+# print(my_list.length)
+
+my_list.reverse_2()
+my_list.display()
 	
 			
 
